@@ -6,7 +6,13 @@ import {buttonPlay,
     buttonForest,
     buttonRain,
     buttonCafe,
-    buttonFirePlace} from "./elements.js"
+    buttonFirePlace,
+    lightButton,
+    darkButton,
+    forestSlider,
+    cafeSlider,
+    rainSlider,
+    fireplaceSlider} from "./elements.js"
 
 export default function Events ({
     controls,
@@ -34,11 +40,15 @@ export default function Events ({
     
     buttonPlus.addEventListener('click', function() {
         timer.plusMinutes()
+        controls.resetControls()
+        timer.hold()
         sounds.pressButton()
     })
     
     buttonSub.addEventListener('click', function() {
         timer.minusMinutes()
+        controls.resetControls()
+        timer.hold()
         sounds.pressButton()
     })
 
@@ -51,6 +61,8 @@ export default function Events ({
         buttonRain.classList.remove('selected')
         buttonCafe.classList.remove('selected')
         buttonFirePlace.classList.remove('selected')
+        controls.hideAllSliders()
+        controls.showSlider(forest)
     
     
         if (buttonForest.classList.contains('selected')) {
@@ -58,8 +70,10 @@ export default function Events ({
             sounds.bgFirePlace.pause()
             sounds.bgRain.pause()
             sounds.bgForest.play()
+            sounds.defaultVolume()
         } else {
             sounds.pauseSounds()
+            controls.hideAllSliders()
         }
     })
     buttonRain.addEventListener('click', function() {
@@ -67,6 +81,8 @@ export default function Events ({
         buttonCafe.classList.remove('selected')
         buttonFirePlace.classList.remove('selected')
         buttonForest.classList.remove('selected')
+        controls.hideAllSliders()
+        controls.showSlider(rain)
     
     
         if (buttonRain.classList.contains('selected')) {
@@ -74,8 +90,10 @@ export default function Events ({
             sounds.bgFirePlace.pause()
             sounds.bgForest.pause()
             sounds.bgRain.play()
+            sounds.defaultVolume()
         } else {
             sounds.pauseSounds()
+            controls.hideAllSliders()
         }
     })
     buttonCafe.addEventListener('click', function() {
@@ -83,6 +101,8 @@ export default function Events ({
         buttonForest.classList.remove('selected')
         buttonRain.classList.remove('selected')
         buttonFirePlace.classList.remove('selected')
+        controls.hideAllSliders()
+        controls.showSlider(cafe)
     
         
         if (buttonCafe.classList.contains('selected')) {
@@ -90,8 +110,10 @@ export default function Events ({
             sounds.bgForest.pause()
             sounds.bgRain.pause()
             sounds.bgCafe.play()
+            sounds.defaultVolume()
         } else {
             sounds.pauseSounds()
+            controls.hideAllSliders()
         }
     })
     buttonFirePlace.addEventListener('click', function() {
@@ -99,16 +121,47 @@ export default function Events ({
         buttonForest.classList.remove('selected')
         buttonRain.classList.remove('selected')
         buttonCafe.classList.remove('selected')
+        controls.hideAllSliders()
+        controls.showSlider(fireplace)
     
         if (buttonFirePlace.classList.contains('selected')) {
             sounds.bgForest.pause()
             sounds.bgRain.pause()
             sounds.bgCafe.pause()
             sounds.bgFirePlace.play()
+            sounds.defaultVolume()
         } else {
             sounds.pauseSounds()
+            controls.hideAllSliders()
         }
     })
+
+
+    forestSlider.addEventListener("mousemove", function() {
+        sounds.setVolume(forestSlider.value)
+        console.log("a")
+    })
+
+    rainSlider.addEventListener("mousemove", function() {
+        sounds.setVolume(rainSlider.value)
+    })
+
+    cafeSlider.addEventListener("mousemove", function() {
+        sounds.setVolume(cafeSlider.value)
+    })
+
+    fireplaceSlider.addEventListener("mousemove", function() {
+        sounds.setVolume(fireplaceSlider.value)
+    })
+
+
+    lightButton.addEventListener("click", function() {
+        controls.darkModeOn()
+     })
+    
+    darkButton.addEventListener("click", function() {
+        controls.darkModeOff()
+     })
     
     return
 }

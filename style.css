@@ -22,13 +22,50 @@ body {
     font-size: 1.6rem;
 }
 
+.darkmode {
+    background: #121214;
+}
+
+.darkmode .timer {
+    color: white;
+}
+
+.darkmode .options .card {
+    background: #29292E;
+}
+
+.darkmode .options .selected{
+    background: #0A3442;
+}
+
+.darkmode .options svg path{
+    fill: #C4C4CC;
+}
+
+.darkmode .controls .play path,
+.darkmode .controls .stop path,
+.darkmode .controls .plus path,
+.darkmode .controls .sub path {
+    fill: #C4C4CC;
+}
+
+
+.themes {
+    position: absolute;
+}
+
+.light, .dark {
+    position: absolute;
+    right: -55rem;
+    top: -25rem;
+}
+
 .page {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 19.2rem;
     min-height: 100vh;
-    padding-bottom: 10rem;
 }
 
 main {
@@ -58,6 +95,33 @@ main .controls {
     gap: 3.2rem;
 }
 
+.options .card-wrapper {
+    position: relative;
+}
+
+.options .card-wrapper input {
+    position: absolute;
+    height: 4px;
+    width: 9rem;
+    bottom: 2.5rem;
+    left: 2.35rem;
+    
+    appearance: none;
+    
+
+    background: white;
+    border-radius: 5px;
+    outline: none;
+}
+
+.options .card-wrapper input::-webkit-slider-thumb {
+    appearance: none;
+    height: 1.6rem;
+    width: 1.6rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+
 .options .card {
     display: flex;
     background: #E1E1E6;
@@ -67,6 +131,8 @@ main .controls {
 
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    gap: 3.2rem;
 
     cursor: pointer;
 }
