@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ff-body: 'Roboto', sans-serif;
+    --fc-timer: #323238;
+
+    font-size: 62.5%;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+body {
+    font-family: var(--ff-body);
+    font-size: 1.6rem;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 19.2rem;
+    min-height: 100vh;
+    padding-bottom: 10rem;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .timer {
+    display: flex;
+    font-size: 12.61rem;
+    line-height: 14.8rem;
+    color: var(--fc-timer);
+}
+
+main .controls {
+    display: flex;
+    gap: 4rem;
+}
+
+.options {
+    width: 30.8rem;
+    height: 33.6rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.2rem;
+}
+
+.options .card {
+    display: flex;
+    background: #E1E1E6;
+    border-radius: 24px;
+    width: 13.8rem;
+    height: 15.2rem;
+
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.options .selected{
+    background: #02799D;
+}
+
+.options .selected svg path{
+    fill: white;
+}
